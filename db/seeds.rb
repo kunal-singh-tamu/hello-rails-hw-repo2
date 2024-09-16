@@ -20,5 +20,11 @@ more_movies = [
 ]
 
 more_movies.each do |movie|
-  Movie.create!(movie)
+  #Movie.create!(movie)
+  #Movie.upsert(movie, unique_by: :title) -- used to ensure no duplication based on title. need to add unique
+  # unique constraint in databse
+  Movie.find_or_create_by(title: movie[:title]) do |m|
+    m.rating = movie[:rating]
+    m.release_date = movie[:release_date]
+  end
 end
