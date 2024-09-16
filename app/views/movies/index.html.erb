@@ -1,16 +1,50 @@
+# <p style="color: green"><%= notice %></p>
+
+# <% content_for :title, "Movies" %>
+
+# <h1>Movies</h1>
+
+# <div id="movies">
+#   <% @movies.each do |movie| %>
+#     <%= render movie %>
+#     <p>
+#       <%= link_to "Show this movie", movie %>
+#     </p>
+#   <% end %>
+# </div>
+
+# <%= link_to "New movie", new_movie_path %>
+
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Movies" %>
 
 <h1>Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-</div>
+<!-- Table to Display Movies -->
+<table>
+  <thead>
+    <tr>
+      <!-- Sortable Columns with sort links -->
+      <th><%= sort_link(:title, 'Title') %></th>
+      <th><%= sort_link(:rating, 'Rating') %></th>
+      <th><%= sort_link(:release_date, 'Release Date') %></th>
+    </tr>
+  </thead>
+  <tbody id="movies">
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= link_to movie.title, movie %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.release_date.strftime('%d-%b-%Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total Movies: <%= @movies.count %></td>
+    </tr>
+  </tfoot>
+</table>
 
 <%= link_to "New movie", new_movie_path %>
