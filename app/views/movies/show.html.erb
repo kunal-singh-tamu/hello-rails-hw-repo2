@@ -7,8 +7,8 @@
   <p><strong>Release date:</strong> <%= @movie.release_date.strftime("%B %d, %Y") %></p>
 
   <div class="actions">
-    <%= link_to "Edit this movie", edit_movie_path(@movie), class: "btn-show" %> | 
-    <%= link_to "Back to movies", movies_path, class: "btn-back" %> 
+    <%= link_to "Edit this movie", edit_movie_path(@movie, sort: session[:sort], direction: session[:direction]), class: "btn-show" %> | 
+    <%= link_to "Back to movies", movies_path(sort: session[:sort], direction: session[:direction]), class: "btn-back" %>
     <br>
     </br>
     <%= button_to "Destroy this movie", @movie, method: :delete, data: { confirm: "Are you sure?" }, class: "btn-delete" %>
