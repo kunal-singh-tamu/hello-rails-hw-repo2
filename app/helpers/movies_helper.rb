@@ -1,6 +1,6 @@
 module MoviesHelper
     def sort_direction(column)
-      # Determine the current direction; toggle between asc and desc
+      # TO decide the order of sort between ascending or descending
       if session[:sort] == column
         session[:direction] == 'asc' ? 'desc' : 'asc'
       else
@@ -9,12 +9,21 @@ module MoviesHelper
     end
   
     def sort_icon(column)
-      # Display an arrow symbol based on the current sort direction
+      # using arrow symbols to find the direction of sort
       if session[:sort] == column
         session[:direction] == 'asc' ? '▲' : '▼'
       else
-        '' # No symbol if the column is not currently sorted
+        '' # Empty for unsorted column
       end
     end
+
+    def column_class(column)
+        if session[:sort] == column
+          session[:direction] == 'asc' ? 'sorted-asc' : 'sorted-desc'
+        else
+          ''
+        end
+      end
+
 end
   

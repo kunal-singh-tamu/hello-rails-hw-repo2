@@ -13,7 +13,12 @@ class MoviesController < ApplicationController
     session[:direction] = sort_direction
 
     # Fetch movies with sorting
-    @movies = Movie.order("#{sort_column} #{sort_direction}")
+    if sort_column == 'title'
+      @movies = Movie.order("LOWER(title) #{sort_direction}")
+    else
+      @movies = Movie.order("#{sort_column} #{sort_direction}")
+    end
+  
 
   end
 

@@ -13,3 +13,139 @@
  *= require_tree .
  *= require_self
  */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  padding: 12px 15px; 
+  border: 1px solid #ddd;
+  text-align: right;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+  position: sticky;
+  top: 0;
+}
+
+
+.sorted-asc {
+  background-color: #d1e7dd;  
+  color: #0f5132;
+  font-weight: bold;
+}
+
+.sorted-desc {
+  background-color: #f8d7da;  
+  color: #842029;
+  font-weight: bold;
+}
+
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;  
+}
+
+tbody tr:hover {
+  background-color: #e0f7fa;  
+}
+
+
+.form-container, .movie-details {
+  background-color: #fafafa;  
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #4A90E2;
+  outline: none;
+}
+
+
+.movie-details h2 {
+  color: #e9ebee; 
+  font-size: 1.8em;
+}
+
+.movie-details p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.actions .btn-show, .actions .btn-back, .actions .btn-delete {
+  background-color: #d7d9db;
+  color: rgb(17, 12, 12);
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.actions .btn-delete {
+  background-color: #f7f0f2;
+}
+
+.actions .btn-show:hover, .actions .btn-back:hover, .btn-new:hover {
+  background-color: #e3e5e8;
+}
+
+.actions .btn-delete:hover {
+  background-color: #ede7e8;
+}
+
+
+.movie-details .btn-show:hover, .movie-details .btn-back:hover, .movie-details .btn-delete:hover {
+  background-color: #e1e6eb; 
+}
+
+.movie-details .btn-delete:hover {
+  background-color: #ede9ea; 
+}
+
+
+/* Footer link for "New Movie" */
+tfoot td a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #4A90E2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-container, .movie-details {
+      width: 90%;
+  }
+
+  .actions .btn-show, .actions .btn-back, .actions .btn-delete {
+      width: 100%;
+      margin-top: 10px;
+  }
+}

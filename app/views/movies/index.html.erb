@@ -10,11 +10,11 @@
     <!-- Table Header -->
     <thead>
       <tr>
-        <th><%= link_to "Title #{sort_icon('title')}".html_safe, movies_path(sort: 'title', direction: sort_direction('title')) %>
+        <th class="<%= column_class('title') %>"><%= link_to "Title #{sort_icon('title')}".html_safe, movies_path(sort: 'title', direction: sort_direction('title')) %>
          </th>
-        <th><%= link_to "Rating #{sort_icon('rating')}".html_safe, movies_path(sort: 'rating', direction: sort_direction('rating')) %>
+        <th class="<%= column_class('rating') %>"><%= link_to "Rating #{sort_icon('rating')}".html_safe, movies_path(sort: 'rating', direction: sort_direction('rating')) %>
         </th>
-        <th><%= link_to "Release Date #{sort_icon('release_date')}".html_safe, movies_path(sort: 'release_date', direction: sort_direction('release_date')) %>
+        <th class="<%= column_class('release_date') %>"><%= link_to "Release Date #{sort_icon('release_date')}".html_safe, movies_path(sort: 'release_date', direction: sort_direction('release_date')) %>
         </th>
       
       </tr>
@@ -26,8 +26,14 @@
         <tr>
           <td style="text-align: right;"><%= movie.title %></td>
           <td style="text-align: right;"><%= movie.rating %></td>
-          <td style="text-align: right;"><%= movie.release_date.strftime("%B %d, %Y") %></td> <!-- Formats date to a readable format -->
+          <td style="text-align: right;"><%= movie.release_date.strftime("%B %d, %Y") %></td> 
+         
           <td>
+            <p>
+              <%= link_to "Show", movie_path(movie), class: "btn-show"  %>
+            </p>
+          </td>
+          
             
           </td>
         </tr>

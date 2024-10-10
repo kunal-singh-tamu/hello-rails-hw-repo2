@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @movie %>
+<div class="form-container">
+  <h2>Title: <%= @movie.title %></h2>
+  <p><strong>Rating:</strong> <%= @movie.rating %></p>
+  <p><strong>Description:</strong> <%= @movie.description %></p>
+  <p><strong>Release date:</strong> <%= @movie.release_date.strftime("%B %d, %Y") %></p>
 
-<div>
-  <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
-  <%= link_to "Back to movies", movies_path %>
-
-  <%= button_to "Destroy this movie", @movie, method: :delete %>
+  <div class="actions">
+    <%= link_to "Edit this movie", edit_movie_path(@movie), class: "btn-show" %> | 
+    <%= link_to "Back to movies", movies_path, class: "btn-back" %> 
+    <br>
+    </br>
+    <%= button_to "Destroy this movie", @movie, method: :delete, data: { confirm: "Are you sure?" }, class: "btn-delete" %>
+  </div>
 </div>
